@@ -1,0 +1,172 @@
+
+@font-face {
+  font-family: 'Roboto';
+  src: url(../fonts/Roboto-Thin.ttf);
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: Roboto;
+  line-height: 1.6;
+  background-color: #0f0f0f;
+  color: #ffffff;
+}
+
+
+.main-content {
+  padding: 20px;
+  max-width: 960px; 
+  margin: 20px auto;
+  background: #313131;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  border-radius: 8px;  /* Add rounded corners */
+}
+
+
+/* Profile Picture */
+.profile-picture {
+  width: 50px; /* Adjust the size as needed */
+  height: 50px; /* Make sure width and height are the same for a perfect circle */
+  border-radius: 50%; /* This is what makes it circular */
+  object-fit: cover; /* This makes the image fit the size and avoid distortion */
+}
+
+/* Top Bar Styles */
+.top-bar {
+  background-color: #333; /* Example dark background */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Group */
+.logo-group {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 20px; /* Space between links */
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 12px; /* Add some padding around the text */
+  display: block; /* Make the entire area clickable, and allows for more padding */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.nav-links a:hover {
+  background-color: #555; /* Darker shade on hover */
+}
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: inherit; /* Inherit background from the parent (top bar) */
+  color: white;
+  padding: 8px 12px; /* Match the padding of regular links */
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+  background-color: #555; /* Darker shade on hover */
+  outline: none; /* Remove the default focus outline */
+}
+
+/* Dropdown Container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #333; /* Match the top bar background */
+  min-width: 0px;
+  z-index: 1;
+  left: 0; /* Aligns the drop down to the top bar button */
+  top: 100%; /* Position the dropdown below the button */
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #555; /* Darker shade on hover */
+}
+
+/* Show the dropdown menu on hover or focus */
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  display: block;
+}
+
+
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+h2 {
+  margin-bottom: 15px;
+  text-align: center; /* Center heading */
+}
+
+.content-separator {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px auto;
+}
+
+p {
+  margin-bottom: 20px;
+  text-align: center; /* Center the paragraph text */
+}
+
+/* ---  Image Grid  --- */
+.image-grid-container {
+  display: flex;
+  justify-content: center; /* Center the grid */
+  align-items: center;   /* Center the grid (vertically if the height is fixed) */
+  padding: 20px;
+}
+
+

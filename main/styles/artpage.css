@@ -1,0 +1,140 @@
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+h2 {
+  margin-bottom: 15px;
+  text-align: center; /* Center heading */
+}
+
+.content-separator {
+  border: none;
+  height: 1px;
+  background-color: #ddd;
+  margin: 20px auto;
+}
+
+p {
+  margin-bottom: 20px;
+  text-align: center; /* Center the paragraph text */
+}
+
+/* ---  Image Grid  --- */
+.image-grid-container {
+  display: flex;
+  justify-content: center; /* Center the grid */
+  align-items: center;   /* Center the grid (vertically if the height is fixed) */
+  padding: 20px;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+  gap: 20px; /* Space between items */
+  width: 100%; /* Occupy the full width of its container */
+  max-width: 1100px; /* Keep a similar max-width to your original */
+
+}
+
+.image-item {
+  /*border: 1px solid #ccc;  For debugging grid layout */
+  border-radius: 8px; /* Rounded corners for image items */
+  overflow: hidden;   /* Hide any overflowing content (e.g., from the shadow) */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  /* Subtle shadow for the items */
+  transition: transform 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.image-item:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.image-item img, .image-item video {
+  width: 100%;
+  height: auto;   /* Maintain aspect ratio */
+  display: block;  /* Remove any extra space below the images */
+  object-fit: contain; /* Use this to keep the aspect ratio.   'cover' crops, 'contain' fits. */
+}
+
+/* ---  Top Bar (minimal adjustments - assumed to be in frontpage.css) --- */
+/* Assuming your top-bar styles are in frontpage.css;  no changes needed here if so. */
+
+/*  Media Queries for Responsiveness (Example)  */
+@media (max-width: 768px) {
+  .image-grid {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+  }
+
+  .main-content {
+      padding: 10px;  /* Reduce padding on smaller screens */
+  }
+}
+
+
+
+
+
+/*  existing styles  */
+/*  ... (your existing styles from your CSS) ... */
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  object-fit: contain;  /* Ensure the image/video fits within the modal */
+}
+
+/* Caption of the Image (remove this if captions are not wanted) */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: white;
+  padding: 10px 0;
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+  .modal-content {
+      width: 100%;
+  }
+}
