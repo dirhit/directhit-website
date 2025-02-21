@@ -32,7 +32,8 @@ body {
 }
 
 .top-bar {
-  background-color: #333;
+  background: #313131;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -135,7 +136,8 @@ h2 {
 }
 
 footer {
-  background-color: #333;
+  background: #313131;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -229,23 +231,27 @@ a {
 
 
 
-
-
-
-
-
+#player-container {
+  position: relative;
+}
 
 
 
 #player {
-  background: #111;
+  background: #313131;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-family: "Roboto";
-  font-size: 1.5em;
+  font-size: 0.5em;
   border-radius: 10px;
-  filter: opacity(.8);
-  width: 100%;
-  height: 100%;
+  right: 0;
+  bottom: 0;
+  margin: 10px;
+  position: absolute;
+  width: 20%;
+
+  
+
 }
 
 #player tr {
@@ -254,16 +260,18 @@ a {
 
 #player-album-art {
   margin: 1em;
-  max-height: 50vmin;
+  max-height: 10vmin;
   border-radius: 10px;
 }
 
 #player-listening, #player-artist {
   font-size: 1.5em;
-  margin-bottom: .5em;
+  margin-top: 5px;
 }
 
 #player-song {
+  margin-top: 10px;
+  margin-right: 10px;
   font-size: 1.5em;
 }
 
@@ -284,7 +292,7 @@ a {
   position: relative; /* keep this or use absolute depending on your layout */
   float: right; /* allow it to float to the right */
   top: -2em; /* adjust this value */
-  right: 30px; /* add this to create space from the right border */
+  right: 20px; /* add this to create space from the right border */
   font-weight: 700;
 }
 
@@ -294,6 +302,7 @@ a {
   border-radius: 10px;
   right: 25px;
   width: 95%;
+  margin-bottom: 15px;
 }
 
 #player-progress {
@@ -303,21 +312,13 @@ a {
   transition: width .2s;
   right: 25px;
   width: 95%;
+  margin-bottom: 15px;
   
 }
 
 
-#player-not-listening {
-  display: flex;            /* Enable Flexbox */
-  justify-content: center;  /* Center horizontally */
-  align-items: center;      /* Center vertically */
-  height: 100px;            /* Set a height for the container */
-  text-align: center;   
-  margin-right: 175px;
-  font-size: 30px;    /* Optional: ensure text is centered */
+
+
+#player-song-link{
+  margin-top: 5px;
 }
-
-
-
-
-

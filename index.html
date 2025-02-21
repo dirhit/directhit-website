@@ -29,13 +29,16 @@
   </div>
 
   <div class="main-content">
-    <h2>about me</h2>
-    <hr class="content-separator">
-    <p>siri call my girlfriend and she gonna say which one</p>
-
+    <h2>hi</h2>
+    <!--<hr class="content-separator">  -->
+    <p>welcome to my site. if u wanna see my art, click <a href = artpage.html>here</a> or go to the top right and click portfolio. any questions? my discord is dirhit, feel free to dm me</p>
+  </div>
+  <main>
+</main>
+  <div id="player-container">
     <table id="player">
       <tr height="100%">
-          <td width="20%" align="center">
+          <td width="20%">
               <img id="player-album-art" style="display: none;">
           </td>
           <td width="80%">
@@ -44,14 +47,14 @@
                   <div id="player-listening" style="display: none;"></div>
                   <div id="player-artist" style="display: none;"></div>
                   <a id="player-mp3-link" href="" target="_blank" style="display: none;"></a>
-                  <a id="player-song-link" href="" target="_blank" style="display: none;">wanna listen along? click me.</a>
+                  <a id="player-song-link" href="" target="_blank" style="display: none;">wanna listen? click me.</a>
                   <div id="player-status"></div>
                   <div id="player-time" style="display: none;"></div>
                   <div id="player-progress-back" style="display: none;">
                       <div id="player-progress"></div>
                   </div>
-                  <div id="player-not-listening" style="display: none;">I'm not listening to anything right now</div>
               </div>
+            </div>
           </td>
       </tr>
       <div id="player-background" class="background" style="display: none;"></div>
@@ -77,12 +80,12 @@
               // If there is song data
               if (songData) {
                   // Show all elements when song is playing or paused
+                  document.getElementById("player").style.display = "block";
                   document.getElementById("player-song").style.display = "block"; 
                   document.getElementById("player-listening").style.display = "block"; 
                   document.getElementById("player-artist").style.display = "block"; 
                   document.getElementById("player-time").style.display = "block"; 
                   document.getElementById("player-progress-back").style.display = "block"; 
-                  document.getElementById("player-not-listening").style.display = "none"; 
                   document.getElementById("player-album-art").style.display = "block"; // Show album art
 
                   // Handle playback state
@@ -171,7 +174,7 @@
       document.getElementById("player-album-art").style.display = "none"; 
       document.getElementById("player-mp3-link").style.display = "none"; 
       document.getElementById("player-song-link").style.display = "none"; 
-      document.getElementById("player-not-listening").style.display = "block"; // Show not listening message
+      document.getElementById("player").style.display = "none"; 
   }
 
   function pad(num) {
@@ -179,26 +182,23 @@
   }
 
   // Initially invoke to set the player before starting the interval
-  clearPlayer(); // Show not listening message at start
+  clearPlayer(); // Set player to start
   updatePlayer();
   setInterval(updatePlayer, updateInterval); // Call updatePlayer every second for state changes
   </script>
 
-  </div>
+</div>
 
 </body>
-<main>
-</main>
 <footer>
   <div class="footer-content">
-  <div class="p1">&copy; direct hit 2025. All rights reserved. Powered by <a href="https://github.com">GitHub</a>.</div>
-
+    <div class="p1">&copy; direct hit 2025. All rights reserved. Powered by <a href="https://github.com">GitHub</a>.</div>
   
-  <div class="social-icons">
-    <a href="#" target="_blank" class="social-icon"><i class="fab fa-spotify"></i></a>
-    <a href="https://www.youtube.com/@dirhit" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
-    <a href="https://discord.gg/JjQSdGdRdS" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
-  </div>
+    <div class="social-icons">
+      <a href="#" target="_blank" class="social-icon"><i class="fab fa-spotify"></i></a>
+      <a href="https://www.youtube.com/@dirhit" target="_blank" class="social-icon"><i class="fab fa-youtube"></i></a>
+      <a href="https://discord.gg/JjQSdGdRdS" target="_blank" class="social-icon"><i class="fab fa-discord"></i></a>
+    </div>
   </div>
 </footer>
 </html>
