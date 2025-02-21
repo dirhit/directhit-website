@@ -7,7 +7,7 @@
 body {
   font-family: Roboto;
   line-height: 1.6;
-  background-color: #00080f;
+  background-image: linear-gradient(180deg, rgb(8, 135, 139), rgb(54, 63, 83));
   color: #fff;
   flex-direction: column;
   display: flex;
@@ -222,4 +222,114 @@ a {
   color: inherit;
   text-decoration: inherit;
 }
+
+
+/* THIS IS FOR SPOTIFY */
+
+
+
+
+
+
+
+
+
+
+
+
+#player {
+  background: #111;
+  color: #fff;
+  font-family: "Roboto";
+  font-size: 1.5em;
+  border-radius: 10px;
+  filter: opacity(.8);
+  width: 100%;
+  height: 100%;
+}
+
+#player tr {
+  height: 100%;
+}
+
+#player-album-art {
+  margin: 1em;
+  max-height: 50vmin;
+  border-radius: 10px;
+}
+
+#player-listening, #player-artist {
+  font-size: 1.5em;
+  margin-bottom: .5em;
+}
+
+#player-song {
+  font-size: 1.5em;
+}
+
+#player-mp3-link {
+  color: #fff;
+  text-decoration: none;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  padding: .2em;
+  margin-right: .2em;
+}
+
+#player-status {
+  margin: 2em 0 1em 0;
+}
+
+#player-time {
+  position: relative; /* keep this or use absolute depending on your layout */
+  float: right; /* allow it to float to the right */
+  top: -2em; /* adjust this value */
+  right: 30px; /* add this to create space from the right border */
+  font-weight: 700;
+}
+
+#player-progress-back {
+  border: .15em solid #eee;
+  height: 1em;
+  border-radius: 10px;
+  right: 25px;
+  width: 95%;
+}
+
+#player-progress {
+  background: #eee;
+  border: .1em solid transparent;
+  height: .75em;
+  transition: width .2s;
+  right: 25px;
+  width: 95%;
+  
+}
+
+#player-background {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -10;
+  background-position: center center;
+  background-size: 100%;
+  filter: blur(2em);
+  position: absolute;
+  transition: background-image .5s ease-in;
+}
+
+#player-not-listening {
+  display: flex;            /* Enable Flexbox */
+  justify-content: center;  /* Center horizontally */
+  align-items: center;      /* Center vertically */
+  height: 100px;            /* Set a height for the container */
+  text-align: center;   
+  margin-right: 175px;
+  font-size: 30px;    /* Optional: ensure text is centered */
+}
+
+
+
+
 
