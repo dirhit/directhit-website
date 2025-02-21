@@ -7,7 +7,7 @@
 body {
   font-family: Roboto;
   line-height: 1.6;
-  background-image: linear-gradient(180deg, rgb(8, 135, 139), rgb(54, 63, 83));
+  background-image: linear-gradient(180deg, #08878b, rgb(54, 63, 83));
   color: #fff;
   flex-direction: column;
   display: flex;
@@ -19,7 +19,7 @@ body {
   padding: 20px;
   max-width: 960px;
   margin: 20px auto;
-  background: #313131;
+  background: #08878b0e;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   min-width: 960px;
@@ -34,7 +34,7 @@ body {
 }
 
 .top-bar {
-  background: #313131;
+  background: #1b1b1b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   padding: 10px 20px;
@@ -95,7 +95,7 @@ body {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: #333;
+  background-color: #1b1b1b;
   z-index: 1;
   left: 0;
   top: calc(100%, 0px); /* Keep this to remove the gap */
@@ -138,7 +138,7 @@ h2 {
 }
 
 footer {
-  background: #313131;
+  background: #1b1b1b;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: white;
   padding: 10px 20px;
@@ -255,7 +255,7 @@ a {
 
 
 #player {
-  background: #313131;
+  background: #08878b0c;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-family: "Roboto";
