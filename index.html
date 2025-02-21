@@ -34,6 +34,175 @@
     <hr class="content-separator">
     <p>siri call my girlfriend and she gonna say which one</p>
     
+    
+
+
+
+
+    
+    <table id="player">
+      <tr height="100%">
+          <td width="20%" align="center">
+              <img id="player-album-art" style="display: none;">
+          </td>
+          <td width="80%">
+              <div class="player-content">
+                  <div id="player-song" style="display: none;"></div>
+                  <div id="player-listening" style="display: none;"></div>
+                  <div id="player-artist" style="display: none;"></div>
+                  <a id="player-mp3-link" href="" target="_blank" style="display: none;"></a>
+                  <a id="player-song-link" href="" target="_blank" style="display: none;">wanna listen along? click me.</a>
+                  <div id="player-status"></div>
+                  <div id="player-time" style="display: none;"></div>
+                  <div id="player-progress-back" style="display: none;">
+                      <div id="player-progress"></div>
+                  </div>
+                  <div id="player-not-listening" style="display: none;">I'm not listening to anything right now</div>
+              </div>
+          </td>
+      </tr>
+      <div id="player-background" class="background"></div>
+  </table>
+  
+  <script>
+  let songData, totalSeconds, progressInterval;
+  const serviceHost = "https://spotify.dirhitbusiness.workers.dev"; 
+  const updateInterval = 1000; // Update every second
+  const defaultBackgroundColor = "#000"; // Default background color
+  const defaultBackground = "linear-gradient(180deg, rgb(8, 135, 139), rgb(54, 63, 83))";
+  const transparentBackgroundColor = "rgba(0, 0, 0, 0.5)"; // You can change this to your preferred transparent color
+  
+  function updatePlayer() {
+      fetch(`${serviceHost}/get-now-playing`)
+          .then(response => response.json())
+          .then(data => {
+              if (data.ERROR) {
+                  clearPlayer();
+                  return;
+              }
+  
+              const wasPlaying = songData && songData.is_playing; // Previous state
+              songData = data;
+  
+              // If there is song data
+              if (songData) {
+                  // Show all elements when song is playing or paused
+                  document.getElementById("player-song").style.display = "block"; 
+                  document.getElementById("player-listening").style.display = "block"; 
+                  document.getElementById("player-artist").style.display = "block"; 
+                  document.getElementById("player-time").style.display = "block"; 
+                  document.getElementById("player-progress-back").style.display = "block"; 
+                  document.getElementById("player-not-listening").style.display = "none"; 
+                  document.getElementById("player-album-art").style.display = "block"; // Show album art
+  
+                  // Handle playback state
+                  if (songData.is_playing) {
+                      // Start playback updates only if it just started playing
+                      if (!wasPlaying) {
+                          if (!progressInterval) {
+                              progressInterval = setInterval(updateProgress, updateInterval);
+                          }
+                      }
+                      
+                      // Show the MP3 link if available
+                      if (songData.item.preview_url) {
+                          document.getElementById("player-mp3-link").style.display = "block";
+                          document.getElementById("player-mp3-link").href = songData.item.preview_url;
+                      } else {
+                          document.getElementById("player-mp3-link").style.display = "none";
+                      }
+  
+                      // UI update with progress if song is playing
+                      updateUIProgress(Math.ceil(songData.progress_ms / 1000));
+                  } else {
+                      if (wasPlaying) {
+                          // Stop playback updates when paused
+                          clearInterval(progressInterval);
+                          progressInterval = null; // Reset progressInterval
+                      }
+                      // Show the last known progress even if paused
+                      updateUIProgress(Math.ceil(songData.progress_ms / 1000));
+                  }
+  
+                  // UI updates for song information
+                  document.getElementById("player-song").innerHTML = `I'm listening to ${songData.item.name}`;
+                  document.getElementById("player-artist").innerHTML = `by ${songData.item.artists[0].name}`;
+                  document.getElementById("player-album-art").src = songData.item.album.images[1].url;
+                  document.getElementById("player-background").style.backgroundImage = 
+                      `url(${songData.item.album.images[1].url})`;
+                  document.getElementById("player-background").style.backgroundColor = transparentBackgroundColor; // Use a transparent background color
+  
+                  totalSeconds = Math.ceil(songData.item.duration_ms / 1000);
+                  
+                  // Generate Spotify URL with the timestamp for the song link
+                  const currentTimestamp = Math.ceil(songData.progress_ms / 1000); 
+                  const songId = songData.item.id; // Spotify song ID
+                  const spotifyLink = `https://open.spotify.com/track/${songId}?t=${currentTimestamp}`;
+                  document.getElementById("player-song-link").setAttribute("href", spotifyLink);
+                  document.getElementById("player-song-link").style.display = "block"; // Show listen along link
+                  
+              } else {
+                  // No song data means Spotify is closed or no current song
+                  clearPlayer();
+              }
+          })
+          .catch(error => {
+              console.error('Error fetching data:', error);
+              clearPlayer(); // Clear the player on error
+          });
+  }
+  
+  function updateUIProgress(progressSeconds) {
+      const endTime = pad(Math.floor(totalSeconds / 60)) + ":" + pad(totalSeconds % 60);
+      const currentTime = pad(Math.floor(progressSeconds / 60)) + ":" + pad(progressSeconds % 60);
+      document.getElementById("player-time").innerHTML = `${currentTime} / ${endTime}`;
+      document.getElementById("player-progress").style.width = `${100 * progressSeconds / totalSeconds}%`;
+  }
+  
+  function updateProgress() {
+      if (songData) {
+          const currentProgress = Math.ceil(songData.progress_ms / 1000);
+          
+          // Update UI based on real progress from API response
+          updateUIProgress(currentProgress);
+          
+          // Check if the current progress has exceeded the total duration
+          if (currentProgress >= totalSeconds) {
+              clearInterval(progressInterval);
+              progressInterval = null; // Reset interval
+              return updatePlayer(); // Refresh the player
+          }
+      }
+  }
+  
+
+function clearPlayer() {
+   // Hide all player UI elements
+   document.getElementById("player-song").style.display = "none";
+   document.getElementById("player-artist").style.display = "none";
+   document.getElementById("player-listening").style.display = "none";
+   document.getElementById("player-time").style.display = "none";
+   document.getElementById("player-progress-back").style.display = "none"; 
+   document.getElementById("player-album-art").style.display = "none"; 
+   document.getElementById("player-mp3-link").style.display = "none"; 
+   document.getElementById("player-song-link").style.display = "none"; 
+   document.getElementById("player-not-listening").style.display = "block"; // Show not listening message
+   document.getElementById("player-background").style.backgroundImage = "none"; // Revert the background
+   document.getElementById("player-background").style.background = defaultBackground; // Set to the gradient background
+}
+  
+  function pad(num) {
+      return num < 10 ? "0" + num : num;
+  }
+  
+  // Initially invoke to set the player before starting the interval
+  clearPlayer(); // Show not listening message at start
+  updatePlayer();
+  setInterval(updatePlayer, updateInterval); // Call updatePlayer every second for state changes
+  </script>
+
+
+    
   </div>
 
 </body>
