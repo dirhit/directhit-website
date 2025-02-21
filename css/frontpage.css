@@ -306,18 +306,6 @@ a {
   
 }
 
-#player-background {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: -10;
-  background-position: center center;
-  background-size: 100%;
-  filter: blur(2em);
-  position: absolute;
-  transition: background-image .5s ease-in;
-}
 
 #player-not-listening {
   display: flex;            /* Enable Flexbox */
