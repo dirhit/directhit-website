@@ -32,8 +32,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
   gap: 20px; /* Space between items */
-  width: 100%; /* Occupy the full width of its container */
-  max-width: 1100px; /* Keep a similar max-width to your original */
 
 }
 
@@ -60,7 +58,7 @@ h2 {
 /* Assuming your top-bar styles are in frontpage.css;  no changes needed here if so. */
 
 /*  Media Queries for Responsiveness (Example)  */
-@media (max-width: 768px) {
+@media (max-width: 512px) {
   .image-grid {
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
   }

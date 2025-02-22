@@ -1,3 +1,6 @@
+
+
+
 @font-face {
   font-family: 'Roboto';
   src: url(../fonts/Roboto-Thin.ttf);
@@ -22,7 +25,7 @@ body {
   background: #00000015;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
-  min-width: 960px;
+  min-width: 10%;
 }
 
 .profile-picture {
@@ -235,18 +238,37 @@ a {
 }
 
 #player {
-  background: #08878b0c;
+  background: #00000015;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   color: #fff;
   font-family: "Roboto";
   font-size: 0.5em;
   border-radius: 10px;
-  right: 0;
-  bottom: 0;
   margin: 10px;
-  position: absolute;
-  width: 20%;
+  position: relative;
+  max-width: 20%; /* Desktop width */
+  margin-left: auto;
 }
+
+@media (max-width: 500px) {
+  #player {
+    max-width: 80%; /* Adjust the width for mobile */
+    margin: 20px auto; /* Center align player */
+    display: block;   /* Ensure it's a block element */
+  }
+  .dropdown-content {
+    display: none;  /* Hide dropdowns by default */
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block; /* Show dropdown when the parent is active */
+  }
+}
+  
+
+
+
+
 
 #player tr {
   height: 100%;
