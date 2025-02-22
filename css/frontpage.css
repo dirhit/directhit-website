@@ -19,11 +19,10 @@ body {
   padding: 20px;
   max-width: 960px;
   margin: 20px auto;
-  background: #08878b0e;
+  background: #00000015;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   min-width: 960px;
-  
 }
 
 .profile-picture {
@@ -67,7 +66,7 @@ body {
   text-decoration: none;
   padding: 8px 12px;
   transition: background-color 0.3s;
-  display: inline-block; /* Add this to treat it like a button */
+  display: inline-block;
 }
 
 .nav-links a:hover {
@@ -98,17 +97,17 @@ body {
   background-color: #1b1b1b;
   z-index: 1;
   left: 0;
-  top: calc(100%, 0px); /* Keep this to remove the gap */
-  width: max-content; /* Make the dropdown the same width as its content */
+  top: calc(100%, 0px);
+  width: max-content;
   min-width: 100%;
-  border-top: 1px solid black; /* Add a black border at the top */
+  border-top: 1px solid black;
 }
 
 .dropdown-content a {
   color: white;
-  text-decoration: none; /* Remove underlines from dropdown links */
-  padding: 12px 16px; /* Add padding to dropdown links */
-  border-bottom: 1px solid black; /* Add a black border to the bottom */
+  text-decoration: none;
+  padding: 12px 16px;
+  border-bottom: 1px solid black;
   display: block;
 }
 
@@ -116,12 +115,10 @@ body {
   background-color: #555;
 }
 
-/* Show dropdown on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Remove the border from the last item in the dropdown */
 .dropdown-content a:last-child {
   border-bottom: none;
 }
@@ -133,7 +130,7 @@ body {
 }
 
 h2 {
-  margin-bottom: 15px;
+  
   text-align: center;
 }
 
@@ -144,21 +141,18 @@ footer {
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
-
 }
 
 .footer-content {
-  display: flex; /* Use flexbox for alignment */
-  justify-content: space-between; /* Space between text and icons */
-  align-items: center; /* Vertically center align text and icons */
-  width: 100%; /* Ensure the footer takes full width */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .p1 {
   text-align: left;
   padding: 8px 12px;
-  
-  
 }
 
 .p2 {
@@ -178,9 +172,9 @@ main {
 }
 
 p {
-  margin-bottom: 20px;
-  text-align: center; /* Center the paragraph text */
+  text-align: center;
 }
+
 .dropbtn2 {
   background-color: inherit;
   color: white;
@@ -190,6 +184,7 @@ p {
   transition: background-color 0.3s;
   display: inline-block;
 }
+
 .dropbtn2:hover {
   background-color: #555;
 }
@@ -198,9 +193,6 @@ p {
   text-align: right;
   padding: 8px 12px;
 }
-
-
-
 
 .social-icon {
   background-color: inherit;
@@ -213,27 +205,21 @@ p {
   font-size: 1.5em;
 }
 
-
-
 .social-icon:hover {
   background-color: #555;
 }
 
-
-
-/* Default link color and style */
 a {
   color: inherit;
-  text-decoration: inherit;
+  text-decoration-line: inherit;
 }
-
 
 .text-container {
   display: flex;
-  justify-content: center; /* Center the grid */
-  align-items: center;   /* Center the grid (vertically if the height is fixed) */
+  justify-content: center;
+  align-items: center;
   padding: 20px;
-  background: #111;
+  background: #1b1b1b00;
   color: #fff;
   font-family: "Roboto";
   font-size: 20px;
@@ -242,17 +228,11 @@ a {
   height: 100%;
 }
 
-
 /* THIS IS FOR SPOTIFY */
-
-
-
 
 #player-container {
   position: relative;
 }
-
-
 
 #player {
   background: #08878b0c;
@@ -266,9 +246,6 @@ a {
   margin: 10px;
   position: absolute;
   width: 20%;
-
-  
-
 }
 
 #player tr {
@@ -281,7 +258,8 @@ a {
   border-radius: 10px;
 }
 
-#player-listening, #player-artist {
+#player-listening,
+#player-artist {
   font-size: 1.5em;
   margin-top: 5px;
 }
@@ -306,10 +284,10 @@ a {
 }
 
 #player-time {
-  position: relative; /* keep this or use absolute depending on your layout */
-  float: right; /* allow it to float to the right */
-  top: -2em; /* adjust this value */
-  right: 20px; /* add this to create space from the right border */
+  position: relative;
+  float: right;
+  top: -2em;
+  right: 20px;
   font-weight: 700;
 }
 
@@ -330,12 +308,8 @@ a {
   right: 25px;
   width: 95%;
   margin-bottom: 15px;
-  
 }
 
-
-
-
-#player-song-link{
+#player-song-link {
   margin-top: 5px;
 }
